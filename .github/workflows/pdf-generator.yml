@@ -26,7 +26,7 @@ jobs:
         wget https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.111/linux64/chrome-linux64.zip
         unzip chrome-linux64.zip
         sudo mv chrome-linux64 /opt/chrome
-        sudo ln -s /opt/chrome/chrome /usr/bin/google-chrome
+        sudo ln -sf $(realpath chrome) /usr/bin/chrome-dev
 
     - name: 🚘 Install ChromeDriver v122
       run: |
