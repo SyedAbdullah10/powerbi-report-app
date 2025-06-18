@@ -2,11 +2,11 @@ name: Generate Power BI PDFs
 
 on:
   schedule:
-    - cron: '0 */12 * * *'  # ⏰ Every 12 hours
-  workflow_dispatch:         # ✅ Allow manual trigger
+    - cron: '0 */12 * * *'  # Every 12 hours
+  workflow_dispatch:
 
 permissions:
-  contents: write            # ✅ Needed for git push
+  contents: write
 
 jobs:
   build:
@@ -43,12 +43,23 @@ jobs:
         mkdir -p logs
         python generate_pdfs.py >> logs/run.log 2>&1 || echo "Script failed, check logs/run.log"
 
+    - name: 🔍 Show directory contents
+      run: |
+        echo "Current directory: $(pwd)"
+        echo "=== 📁 public/ directory ==="
+        ls -R public || echo "⚠️ No PDFs found"
+
     - name: 📤 Commit generated PDFs and Logs
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/${{ github.repository }}
-        find public -name "*.pdf" -exec git add {} +
+
+        echo "📝 Adding PDFs:"
+        find public -name "*.pdf" -exec echo "Adding: {}" \; -exec git add {} \;
+
+        echo "📝 Adding log:"
         git add logs/run.log || echo "No log file"
+
         git commit -m "🔄 Auto-update Power BI PDFs + log" || echo "No changes to commit"
         git push
