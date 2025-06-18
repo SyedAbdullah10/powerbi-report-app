@@ -1,6 +1,7 @@
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 import os
 import time
 
@@ -34,14 +35,17 @@ for report in reports:
         logging.info(f"📁 Saving to: {output_path}")
 
         chrome_options = Options()
+        chrome_options.binary_location = "/usr/bin/google-chrome"
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument(f'--print-to-pdf={os.path.abspath(output_path)}')
 
-        driver = webdriver.Chrome(options=chrome_options)
+        service = Service(executable_path="/usr/bin/chromedriver")
+        driver = webdriver.Chrome(service=service, options=chrome_options)
+
         driver.get(report["url"])
-        time.sleep(15)  # Wait for Power BI dashboard to load
+        time.sleep(15)  # Wait for Power BI dashboard to load fully
         driver.quit()
 
         logging.info(f"✅ PDF saved successfully at: {output_path}")

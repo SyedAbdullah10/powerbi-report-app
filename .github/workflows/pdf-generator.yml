@@ -24,16 +24,16 @@ jobs:
     - name: 📦 Install Python dependencies
       run: pip install -r requirements.txt
 
-    - name: 🧱 Install Chrome v122
+    - name: 🧱 Install Chrome v137
       run: |
-        wget https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.111/linux64/chrome-linux64.zip
+        wget https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.55/linux64/chrome-linux64.zip
         unzip chrome-linux64.zip
         sudo mv chrome-linux64 /opt/chrome
-        sudo ln -sf $(realpath chrome) /usr/bin/chrome-dev
+        sudo ln -s /opt/chrome/chrome /usr/bin/google-chrome
 
-    - name: 🚘 Install ChromeDriver v122
+    - name: 🚘 Install ChromeDriver v137
       run: |
-        wget https://storage.googleapis.com/chrome-for-testing-public/122.0.6261.111/linux64/chromedriver-linux64.zip
+        wget https://storage.googleapis.com/chrome-for-testing-public/137.0.7151.55/linux64/chromedriver-linux64.zip
         unzip chromedriver-linux64.zip
         sudo mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
         sudo chmod +x /usr/bin/chromedriver
