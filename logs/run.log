@@ -1,0 +1,54 @@
+2025-06-18 16:26:10,729 — INFO — 🧭 Generating PDF for: https://app.powerbi.com/view?r=eyJrIjoiN2Q1MmE2NjAtOTdhZS00ZTk3LWJlOGMtMzUwNmI0YmQzNTJjIiwidCI6ImY2MzFmNGVmLWMzYmItNDU5OC04NWZmLTM2OTNlNzZmMmZmYiIsImMiOjZ9
+2025-06-18 16:26:10,729 — INFO — 🧭 Generating PDF for: https://app.powerbi.com/view?r=eyJrIjoiN2Q1MmE2NjAtOTdhZS00ZTk3LWJlOGMtMzUwNmI0YmQzNTJjIiwidCI6ImY2MzFmNGVmLWMzYmItNDU5OC04NWZmLTM2OTNlNzZmMmZmYiIsImMiOjZ9
+2025-06-18 16:26:10,729 — INFO — 📁 Saving to: public/UDT-Dashboard/report.pdf
+2025-06-18 16:26:10,729 — INFO — 📁 Saving to: public/UDT-Dashboard/report.pdf
+2025-06-18 16:26:11,131 — WARNING — The chromedriver version (122.0.6261.111) detected in PATH at /usr/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.55); currently, chromedriver 137.0.7151.119 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-18 16:26:11,131 — WARNING — The chromedriver version (122.0.6261.111) detected in PATH at /usr/bin/chromedriver might not be compatible with the detected chrome version (137.0.7151.55); currently, chromedriver 137.0.7151.119 is recommended for chrome 137.*, so it is advised to delete the driver in PATH and retry
+2025-06-18 16:26:11,654 — ERROR — ❌ Failed to generate PDF for UDT-Dashboard: Message: session not created: This version of ChromeDriver only supports Chrome version 122
+Current browser version is 137.0.7151.55 with binary path /usr/bin/google-chrome
+Stacktrace:
+#0 0x55d9f9a98ec3 <unknown>
+#1 0x55d9f9790ce6 <unknown>
+#2 0x55d9f97cb62b <unknown>
+#3 0x55d9f97ca7f5 <unknown>
+#4 0x55d9f97c5a05 <unknown>
+#5 0x55d9f97c16ed <unknown>
+#6 0x55d9f980a71c <unknown>
+#7 0x55d9f97fdc53 <unknown>
+#8 0x55d9f97cedb3 <unknown>
+#9 0x55d9f97cf77e <unknown>
+#10 0x55d9f9a5e7fb <unknown>
+#11 0x55d9f9a62815 <unknown>
+#12 0x55d9f9a4c111 <unknown>
+#13 0x55d9f9a633a2 <unknown>
+#14 0x55d9f9a301ef <unknown>
+#15 0x55d9f9a874b8 <unknown>
+#16 0x55d9f9a876b3 <unknown>
+#17 0x55d9f9a98074 <unknown>
+#18 0x7f57cb29caa4 <unknown>
+#19 0x7f57cb329c3c <unknown>
+
+2025-06-18 16:26:11,654 — ERROR — ❌ Failed to generate PDF for UDT-Dashboard: Message: session not created: This version of ChromeDriver only supports Chrome version 122
+Current browser version is 137.0.7151.55 with binary path /usr/bin/google-chrome
+Stacktrace:
+#0 0x55d9f9a98ec3 <unknown>
+#1 0x55d9f9790ce6 <unknown>
+#2 0x55d9f97cb62b <unknown>
+#3 0x55d9f97ca7f5 <unknown>
+#4 0x55d9f97c5a05 <unknown>
+#5 0x55d9f97c16ed <unknown>
+#6 0x55d9f980a71c <unknown>
+#7 0x55d9f97fdc53 <unknown>
+#8 0x55d9f97cedb3 <unknown>
+#9 0x55d9f97cf77e <unknown>
+#10 0x55d9f9a5e7fb <unknown>
+#11 0x55d9f9a62815 <unknown>
+#12 0x55d9f9a4c111 <unknown>
+#13 0x55d9f9a633a2 <unknown>
+#14 0x55d9f9a301ef <unknown>
+#15 0x55d9f9a874b8 <unknown>
+#16 0x55d9f9a876b3 <unknown>
+#17 0x55d9f9a98074 <unknown>
+#18 0x7f57cb29caa4 <unknown>
+#19 0x7f57cb329c3c <unknown>
+
