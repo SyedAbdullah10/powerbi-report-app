@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 import os
 import time
+import base64
 
 # === Setup Logging ===
 os.makedirs("logs", exist_ok=True)
@@ -36,28 +37,28 @@ for report in reports:
 
         chrome_options = Options()
         chrome_options.binary_location = "/usr/bin/google-chrome"
-        chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--headless=new')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--disable-dev-shm-usage')
-        chrome_options.add_argument(f'--print-to-pdf={os.path.abspath(output_path)}')
 
         service = Service(executable_path="/usr/bin/chromedriver")
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
         driver.get(report["url"])
+        logging.info("⏳ Waiting for dashboard to fully load...")
+        time.sleep(25)
 
-        # Give Power BI enough time to render the dashboard
-        logging.info("⏳ Waiting for Power BI dashboard to load...")
-        time.sleep(20)
-        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        time.sleep(10)
+        logging.info("🖨️ Exporting to PDF via DevTools...")
+        pdf = driver.execute_cdp_cmd("Page.printToPDF", {
+            "printBackground": True,
+            "landscape": False
+        })
+
+        with open(output_path, "wb") as f:
+            f.write(base64.b64decode(pdf['data']))
 
         driver.quit()
-
-        # Confirm the PDF was actually created
-        if not os.path.exists(output_path):
-            raise FileNotFoundError(f"PDF was not generated at: {output_path}")
 
         logging.info(f"✅ PDF saved successfully at: {output_path}")
 
