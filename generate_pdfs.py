@@ -39,15 +39,27 @@ for report in reports:
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-gpu')
+        chrome_options.add_argument('--disable-dev-shm-usage')
         chrome_options.add_argument(f'--print-to-pdf={os.path.abspath(output_path)}')
 
         service = Service(executable_path="/usr/bin/chromedriver")
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
         driver.get(report["url"])
-        time.sleep(15)  # Wait for Power BI dashboard to load fully
+
+        # Give Power BI enough time to render the dashboard
+        logging.info("⏳ Waiting for Power BI dashboard to load...")
+        time.sleep(20)
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(10)
+
         driver.quit()
 
+        # Confirm the PDF was actually created
+        if not os.path.exists(output_path):
+            raise FileNotFoundError(f"PDF was not generated at: {output_path}")
+
         logging.info(f"✅ PDF saved successfully at: {output_path}")
+
     except Exception as e:
         logging.error(f"❌ Failed to generate PDF for {report['folder']}: {str(e)}")
