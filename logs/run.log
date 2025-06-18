@@ -64,3 +64,55 @@ Stacktrace:
 2025-06-18 16:45:57,146 — INFO — 📁 Saving to: public/UDT-Dashboard/report.pdf
 2025-06-18 16:46:15,753 — INFO — ✅ PDF saved successfully at: public/UDT-Dashboard/report.pdf
 2025-06-18 16:46:15,753 — INFO — ✅ PDF saved successfully at: public/UDT-Dashboard/report.pdf
+2025-06-18 16:50:48,935 — INFO — 🧭 Generating PDF for: https://app.powerbi.com/view?r=eyJrIjoiN2Q1MmE2NjAtOTdhZS00ZTk3LWJlOGMtMzUwNmI0YmQzNTJjIiwidCI6ImY2MzFmNGVmLWMzYmItNDU5OC04NWZmLTM2OTNlNzZmMmZmYiIsImMiOjZ9
+2025-06-18 16:50:48,935 — INFO — 🧭 Generating PDF for: https://app.powerbi.com/view?r=eyJrIjoiN2Q1MmE2NjAtOTdhZS00ZTk3LWJlOGMtMzUwNmI0YmQzNTJjIiwidCI6ImY2MzFmNGVmLWMzYmItNDU5OC04NWZmLTM2OTNlNzZmMmZmYiIsImMiOjZ9
+2025-06-18 16:50:48,935 — INFO — 📁 Saving to: public/UDT-Dashboard/report.pdf
+2025-06-18 16:50:48,935 — INFO — 📁 Saving to: public/UDT-Dashboard/report.pdf
+2025-06-18 16:50:49,518 — INFO — ⏳ Waiting for Power BI dashboard to load...
+2025-06-18 16:50:49,518 — INFO — ⏳ Waiting for Power BI dashboard to load...
+2025-06-18 16:51:09,523 — ERROR — ❌ Failed to generate PDF for UDT-Dashboard: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.55)
+Stacktrace:
+#0 0x556b2a04a29a <unknown>
+#1 0x556b29ab6040 <unknown>
+#2 0x556b29a8ab20 <unknown>
+#3 0x556b29b35f18 <unknown>
+#4 0x556b29b53472 <unknown>
+#5 0x556b29b2d463 <unknown>
+#6 0x556b29af9c55 <unknown>
+#7 0x556b29afa8c1 <unknown>
+#8 0x556b2a00f1bb <unknown>
+#9 0x556b2a0130c9 <unknown>
+#10 0x556b29ff7a39 <unknown>
+#11 0x556b2a013c78 <unknown>
+#12 0x556b29fdc6bf <unknown>
+#13 0x556b2a037948 <unknown>
+#14 0x556b2a037b26 <unknown>
+#15 0x556b2a049176 <unknown>
+#16 0x7f86e6a9caa4 <unknown>
+#17 0x7f86e6b29c3c <unknown>
+
+2025-06-18 16:51:09,523 — ERROR — ❌ Failed to generate PDF for UDT-Dashboard: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.55)
+Stacktrace:
+#0 0x556b2a04a29a <unknown>
+#1 0x556b29ab6040 <unknown>
+#2 0x556b29a8ab20 <unknown>
+#3 0x556b29b35f18 <unknown>
+#4 0x556b29b53472 <unknown>
+#5 0x556b29b2d463 <unknown>
+#6 0x556b29af9c55 <unknown>
+#7 0x556b29afa8c1 <unknown>
+#8 0x556b2a00f1bb <unknown>
+#9 0x556b2a0130c9 <unknown>
+#10 0x556b29ff7a39 <unknown>
+#11 0x556b2a013c78 <unknown>
+#12 0x556b29fdc6bf <unknown>
+#13 0x556b2a037948 <unknown>
+#14 0x556b2a037b26 <unknown>
+#15 0x556b2a049176 <unknown>
+#16 0x7f86e6a9caa4 <unknown>
+#17 0x7f86e6b29c3c <unknown>
+
