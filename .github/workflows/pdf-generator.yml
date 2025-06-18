@@ -1,0 +1,48 @@
+name: Generate Power BI PDFs
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # 🕒 Runs Every 12 hours
+  workflow_dispatch:      # ✅ Allows manual trigger via GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🧾 Checkout repo
+      uses: actions/checkout@v3
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: 📦 Install Python dependencies
+      run: pip install -r requirements.txt
+
+    - name: 🧱 Install Chrome
+      run: |
+        sudo apt update
+        sudo apt install -y wget unzip
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install -y ./google-chrome-stable_current_amd64.deb
+
+    - name: 🚘 Install ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome --version | grep -oP "\d+\.\d+\.\d+\.\d+")
+        wget -q "https://chromedriver.storage.googleapis.com/$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip"
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/bin/chromedriver
+        sudo chmod +x /usr/bin/chromedriver
+
+    - name: 🧪 Run PDF generator
+      run: python generate_pdfs.py
+
+    - name: 📤 Commit generated PDFs
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add public/*/*.pdf
+        git commit -m "🔄 Auto-update Power BI PDFs" || echo "No changes"
+        git push
